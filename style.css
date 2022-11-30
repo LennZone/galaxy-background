@@ -1,0 +1,47 @@
+.background,
+.background:before,
+.background:after {
+    --animation-time: 60s;
+    content: "";
+    position: fixed;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    overflow-x: hidden;
+    z-index: -3;
+    background: #000 url("/img/stars.png") repeat top center;
+}
+
+.background:before {
+    z-index: -2;
+    background: transparent url("/img/shimmer.png") repeat top center;
+    animation: move-twink-back var(--animation-time) linear infinite;
+}
+
+.background:after {
+    z-index: -1;
+    background: transparent url('/img/cloud.png') repeat top center;
+    animation: move-clouds-back var(--animation-time) linear infinite;
+}
+
+@keyframes move-twink-back {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -104vw 52vh;
+    }
+}
+
+@keyframes move-clouds-back {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 104vw 0;
+    }
+}
